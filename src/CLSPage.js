@@ -2,21 +2,21 @@
 import React, { useEffect, useState } from 'react';
 
 // CLSPage component designed to demonstrate Cumulative Layout Shift (CLS).
-// This version sets up scenarios without explicitly stating the performance issue,
-// encouraging the audience to discover them through auditing.
+// This version sets up scenarios with neutral on-page text, encouraging the audience to
+// discover the performance issues through auditing the code and visual observation.
 const CLSPage = () => {
   const [showTopElement, setShowTopElement] = useState(false);
   const [showMiddleImage, setShowMiddleImage] = useState(false);
   const [showBottomBanner, setShowBottomBanner] = useState(false);
 
   useEffect(() => {
-    // Scenario 1: A top element appears late
+    // Issue 1: A top element appears late
     setTimeout(() => setShowTopElement(true), 1500); // Appears after 1.5 seconds
 
-    // Scenario 2: A middle image loads without explicit dimensions
+    // Issue 2: A middle image loads without explicit dimensions
     setTimeout(() => setShowMiddleImage(true), 3000); // Appears after 3 seconds
 
-    // Scenario 3: A bottom banner/pop-up appears late
+    // Issue 3: A bottom banner/pop-up appears late
     setTimeout(() => setShowBottomBanner(true), 4500); // Appears after 4.5 seconds
 
   }, []);
@@ -43,14 +43,14 @@ const CLSPage = () => {
         </p>
 
         {/* --- */}
-        {/* Scenario 1: Top element that appears late */}
+        {/* Issue 1: Top element that appears late */}
         {showTopElement && (
           <div style={{
             backgroundColor: '#ffe4e6', padding: '16px', borderRadius: '8px', border: '2px solid #ef4444',
             animation: 'fadeInDown 0.5s ease-out'
           }}>
             <h2 style={{ fontSize: '1.5rem', lineHeight: '2rem', fontWeight: 'bold', color: '#dc2626', marginBottom: '8px' }}>
-              Block Alpha
+              Issue 1: Top Section
             </h2>
             <p style={{ fontSize: '1rem', lineHeight: '1.5rem', color: '#4b5563', marginBottom: '12px' }}>
               This section is designed to appear and provide important information.
@@ -76,10 +76,10 @@ const CLSPage = () => {
         </div>
 
         {/* --- */}
-        {/* Scenario 2: Image without explicit dimensions */}
+        {/* Issue 2: Image without explicit dimensions */}
         <div style={{ backgroundColor: '#fffbe6', padding: '16px', borderRadius: '8px', borderLeft: '5px solid #f59e0b' }}>
           <h2 style={{ fontSize: '1.5rem', lineHeight: '2rem', fontWeight: 'bold', color: '#b45309', marginBottom: '8px' }}>
-            Block Beta: A Visual Element
+            Issue 2: Visual Element
           </h2>
           <p style={{ fontSize: '1rem', lineHeight: '1.5rem', color: '#4b5563', marginBottom: '12px' }}>
             There's an image that will appear below. Observe its behavior and what happens to the surrounding text.
@@ -101,7 +101,7 @@ const CLSPage = () => {
         </div>
 
         <p style={paragraphStyle}>
-          This text is positioned below the visual element from Block Beta.
+          This text is positioned below the visual element.
         </p>
         <div style={{ backgroundColor: '#fce7f3', padding: '16px', borderRadius: '8px', boxShadow: '0 1px 2px rgba(0, 0, 0, 0.05)' }}>
           <h2 style={sectionHeadingStyle}>
@@ -113,10 +113,10 @@ const CLSPage = () => {
         </div>
 
         {/* --- */}
-        {/* Scenario 3: Bottom banner/pop-up appears late */}
+        {/* Issue 3: Bottom banner/pop-up appears late */}
         <div style={{ backgroundColor: '#d1fae5', padding: '16px', borderRadius: '8px', borderLeft: '5px solid #10b981' }}>
           <h2 style={{ fontSize: '1.5rem', lineHeight: '2rem', fontWeight: 'bold', color: '#067451', marginBottom: '8px' }}>
-            Block Gamma: Page Footer Info
+            Issue 3: Bottom Information
           </h2>
           <p style={{ fontSize: '1rem', lineHeight: '1.5rem', color: '#4b5563', marginBottom: '12px' }}>
             This section provides some important information at the bottom of the page. Scroll all the way down to see it.
@@ -128,7 +128,7 @@ const CLSPage = () => {
             Concluding Remarks
           </h2>
           <p style={paragraphStyle}>
-            You've reached the very end of the content. Did you notice anything unusual?
+            You've reached the very end of the content.
           </p>
           <p style={paragraphStyle}>
             At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.
@@ -143,7 +143,7 @@ const CLSPage = () => {
             animation: 'fadeInUp 0.5s ease-out', zIndex: 10
           }}>
             <h3 style={{ fontSize: '1.25rem', lineHeight: '1.75rem', fontWeight: 'bold', color: '#1e40af', marginBottom: '8px' }}>
-              Final Important Notice
+              Important Notice
             </h3>
             <p style={{ fontSize: '0.875rem', lineHeight: '1.25rem', color: '#1e40af' }}>
               Thank you for visiting! We value your experience.
