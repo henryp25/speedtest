@@ -55,15 +55,6 @@ const LCPPage = () => {
         backgroundColor: '#ffffff', padding: '24px', borderRadius: '12px', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
         width: '100%', maxWidth: '768px', textAlign: 'center', display: 'flex', flexDirection: 'column', gap: '20px'
       }}>
-        <h1 style={{ fontSize: '2.25rem', lineHeight: '2.5rem', fontWeight: 'bold', color: '#dc2626', marginBottom: '16px' }}>
-          Page Load Investigation
-        </h1>
-        <p style={{ fontSize: '1.125rem', lineHeight: '1.75rem', color: '#4b5563', marginBottom: '24px' }}>
-          Welcome to our page! See if you can find out why some things might be happening unexpectedly.
-        </p>
-
-        {/* --- */}
-        {/* Issue 1: LCP Image that needs optimizing (remove lazy loading) */}
         <div style={{ backgroundColor: '#fee2e2', padding: '16px', borderRadius: '8px', marginBottom: '24px', borderLeft: '5px solid #ef4444' }}>
           <h2 style={{ fontSize: '1.5rem', lineHeight: '2rem', fontWeight: 'semibold', color: '#dc2626', marginBottom: '8px' }}>
             Issue 1: Main Visual
